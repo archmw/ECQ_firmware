@@ -1,8 +1,10 @@
 # do not track these files
 # compiled source files
-*.o
-
+/build/default/production/*.o
+/build/default/production/*.o.d
+*.hex
 
 # ingore build directory
-build
+/build
+/debug
 
