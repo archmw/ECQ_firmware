@@ -467,17 +467,17 @@ usercode
 
 __FBS             0xf80000          0x2
  *(__FBS.sec*)
- __FBS.sec        0xf80000          0x2 /CW/_FBS¿ÅNÙÅN__FBS.sec
+ __FBS.sec        0xf80000          0x2 /CW/_FBS¿Å 	ÙÅ 	__FBS.sec
                   0xf80000                  __FBS.sec
 
 __FSS             0xf80002          0x2
  *(__FSS.sec*)
- __FSS.sec        0xf80002          0x2 /CW/_FSS¿¿MÙ¿M__FSS.sec
+ __FSS.sec        0xf80002          0x2 /CW/_FSS¿¿	Ù¿	__FSS.sec
                   0xf80002                  __FSS.sec
 
 __FGS             0xf80004          0x2
  *(__FGS.sec*)
- __FGS.sec        0xf80004          0x2 /CW/_FGS¿∞MÙ∞M__FGS.sec
+ __FGS.sec        0xf80004          0x2 /CW/_FGS¿∞	Ù∞	__FGS.sec
                   0xf80004                  __FGS.sec
 
 __FOSCSEL
@@ -1335,9 +1335,9 @@ LOAD /opt/microchip/xc16/v1.41/bin/bin/../../lib/libm-elf.a
 LOAD /opt/microchip/xc16/v1.41/bin/bin/../../lib/libc-elf.a
 END GROUP
 OUTPUT(dist/default/production/DM_ECQ.X.production.elf elf32-pic30)
-LOAD /CW/_FGS¿∞MÙ∞M__FGS.sec
-LOAD /CW/_FSS¿¿MÙ¿M__FSS.sec
-LOAD /CW/_FBS¿ÅNÙÅN__FBS.sec
+LOAD /CW/_FGS¿∞	Ù∞	__FGS.sec
+LOAD /CW/_FSS¿¿	Ù¿	__FSS.sec
+LOAD /CW/_FBS¿Å 	ÙÅ 	__FBS.sec
 LOAD default_isr
 LOAD heap
 LOAD data_init
