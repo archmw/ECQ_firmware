@@ -1,0 +1,1 @@
+Tested OK with service values from PC for Multiple Master mode,standby,single,slave
