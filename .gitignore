@@ -1,0 +1,8 @@
+# do not track these files
+# compiled source files
+*.o
+
+
+# ingore build directory
+build
+
