@@ -24,6 +24,10 @@
 #include <string.h>
 #include "MemoryAddress.h"
 #include "bellControl.h"
+#include <ctype.h>
+
+#define true 1
+#define false 0
 unsigned int dispTmr;
 unsigned int lineNumber;
 unsigned int keyTmr;
@@ -34,6 +38,10 @@ extern char recServ[110]; // receive range values for multiple services
 char cpyRecvData[15];
 extern char Rindex, startFlag, stopFlag, serStopFlag;
 extern char rangeFlag;
+
+char validateLastCalledTokenRestore(char *temp);
+
+
 unsigned int displData[16][3] = {
     {0x0001, 0x7fff, 0x7fff},
     {0x0002, 0xbfff, 0xbfff},
@@ -162,7 +170,9 @@ int main(int argc, char** argv) {
     strcpy(rawMasterStr, "TEST   ");
     printDsplMstr(rawMasterStr); // as per video sent by him
     __delay_ms(1000);
-
+    strcpy(rawMasterStr,"V3.0   "); // states firmware current version in use.
+    printDsplMstr(rawMasterStr);
+    __delay_ms(1000);
     /*============================= WRITE DEFAULT PARAMETERS IN EEPROM=========================================*/
     unsigned char firstValue = spiEeByteRead(adrNetMode);
     readBuff[0] = spiEeByteRead(adrNetMode);
@@ -1030,13 +1040,7 @@ MASTER_MODE:
     unsigned int tempNum = 0, emerNum = 0, j = 0, numOfService, recIDint, riIDint, servTempNum[10], servEmerNum[10];
     char tempCnt[5], withinRange;
     
-    /* Note 4: as discussed with senthil on 19th oct 2019,                                   */
-    /* if ERROR is shown on display , we will send * 00 00 EEEE # cmd                        */
-    /* from master board so that keypad can understand that cmd has been failed              */
-    /* and keypad needs to resend this cmd. This is because when a slave board is            */
-    /* is connected in a already Powered ON system, first command sent from keypad fails.    */
-    /* next cmd onwards system works well. so to avoid missing a cmd, we found this solution.*/
-    char errMsg[15] = "* 00 00 EEEE #";
+    
     char serviceIDPtr[10]; // multipleCase;
     unsigned char readAddr;
     int multipleCase;
@@ -1125,13 +1129,44 @@ MASTER_MODE:
                     const char *servID = strchr(serviceIDPtr,mstrDisp[0]); // check if memory read has same service ID then load last called token
                     if(servID && !lastServiceLoadFlag ){
                         eeWriteArr(lastServiceLoad,"11",2); // no last service was served
+                        
                         strncpy(tempCnt, mstrDisp, 4);
-                        servCountValue[j] = strToUi(tempCnt);
+                        
+//                        servCountValue[j] = strToUi(tempCnt);
+//                        if (servCountValue[j] < servCountStart[j] || servCountValue[j] > servCountStop[j])
+//                            servCountValue[j] = servCountStart[j] - 1;
+//                        printDsplMstr(mstrDisp);
+//                        __delay_ms(1000);
+                        if(validateLastCalledTokenRestore(tempCnt) == true){
+                            servCountValue[j] = strToUi(tempCnt);
+                            if (servCountValue[j] < servCountStart[j] || servCountValue[j] > servCountStop[j])
+                                servCountValue[j] = servCountStart[j] - 1;
+                            printDsplMstr(mstrDisp);
+                            __delay_ms(1000);
+                        } else{
+//                            UART1PutString("* invalid string #");
+                        }
+/*===============================this does not show any garbage value but last stored value gets
+ * restored to start value of token=====================================================================
+ *                         if( validateLastCalledTokenRestore(tempCnt) == false){
+                            strcpy(tempCnt,"0000");
+                            //strncpy(mstrDisp,"0000",4);
+                            UART1PutString("* invalid string #");
+                        }
+                        else{
+                            servCountValue[j] = strToUi(tempCnt);
 //                      check if last recalled value is out of range, set it equal to token start value
-                        if (servCountValue[j] < servCountStart[j] || servCountValue[j] > servCountStop[j])
-                            servCountValue[j] = servCountStart[j] - 1;
-                        printDsplMstr(mstrDisp);
-                        __delay_ms(1000);
+                            if (servCountValue[j] < servCountStart[j] || servCountValue[j] > servCountStop[j])
+                                servCountValue[j] = servCountStart[j] - 1;
+                            printDsplMstr(mstrDisp);
+                            __delay_ms(1000);
+                        }
+==============================================================================================================*/
+//                        servCountValue[j] = strToUi(tempCnt);
+////                      check if last recalled value is out of range, set it equal to token start value
+//                        if (servCountValue[j] < servCountStart[j] || servCountValue[j] > servCountStop[j])
+//                            servCountValue[j] = servCountStart[j] - 1;
+                        
                     }
                     
 
@@ -1161,7 +1196,7 @@ MASTER_MODE:
             /* VALUES OF SERVICE ID FROM A TO J WITH COUNT OF 000 TO 999 AND WRITE IT TO EEPROM */
             /* SO VALUES WILL BE A000 TO A999, B000 TO B999 ... J000 TO J999                    */
             /*==================================================================================*/
-            if (readAddr == EEPROM_LOCATION_EMPTY) { //check if read byte from start of service list is FF,
+            if (readAddr == EEPROM_LOCATION_EMPTY) { //check if read byte from start of service list is '#',
                 // location is empty
                 printDsplMstr("       "); //clean the display
                 // By default there will be 10(max) number of services active
@@ -1216,7 +1251,53 @@ MASTER_MODE:
                     } else if (j % 2 == 1) {
                         servCountStop[(j-1)-(j/2)] = strCountUiCount(TEMP, 4);
                     }
-                    TEMP[i] = '\0'; // add null to end string format of count value
+                    TEMP[i] = '\0'; // add null to end string format of count value         
+//                    /*======================================================================*/
+//                    /* Note 5: to resolve garbage value issue for unused service,           */
+//                    /* before showing value on display we will convert string token number  */
+//                    /* to int value and check if int value is a valid number or not         */
+//                    /* if it is not a valid number, display 0000.                           */
+////                    int tokenNumToCount = strCountUiCount(TEMP,4);
+////                    int i;
+//////                    if(tokenNumToCount >= 1000 ){ // check if num is invalid, write 000 as a count value
+//////                        for(i = 1; i < 4; i++)
+//////                            TEMP[i] = '0';
+//////                    }
+////                    if((tokenNumToCount > 0) && (tokenNumToCount <1000) ){ // check if num is valid, write 000 as a count value for invalid number
+////                        //do nothing
+////                    }
+////                    else{
+////                        for(i = 1; i < 4; i++)
+////                            TEMP[i] = '0';
+////                    }
+//                    //==========================2nd option==================================*/
+//                    
+//                    /* check each character, if valid character is found, display it else   */
+//                    /* throw 0000 on display                                                */
+//                    int i = 0, count = 0;
+//                    char flag_invalid = false;
+//                    
+//               
+//                    while(i<4){
+//                        if(isalnum(TEMP[i]) != 1){
+//                            flag_invalid = true;
+//                           break;
+//                           
+//                        }
+//                        else{
+//                            count++;
+//                        }
+//                        i++;
+//                    }
+//                    if(flag_invalid == true){
+//                        strcpy(TEMP,"0000\0");
+//                        UART1PutString("* invalid String #");
+//                    }
+//                   
+//                    
+//                
+//                    //==========================2nd option ends here =======================*/
+//                    /*====================== Note5 ends here ===============================*/
                     masterDsplString(master_displ_temp, TEMP);
                     printDsplMstr(master_displ_temp);
                     __delay_ms(1000);
@@ -1823,8 +1904,16 @@ MASTER_MODE:
             }
             }// limit check loop ends here
             else{
+                /* Note 4: as discussed with senthil on 19th oct 2019,                                   */
+                /* if ERROR is shown on display , we will send * 00 00 EEEE # cmd                        */
+                /* from master board so that keypad can understand that cmd has been failed              */
+                /* and keypad needs to resend this cmd. This is because when a slave board is            */
+                /* is connected in a already Powered ON system, first command sent from keypad fails.    */
+                /* next cmd onwards system works well. so to avoid missing a cmd, we found this solution.*/
+//                const unsigned char errMsg[14] = "* 00 00 EEEE #";
                 printDsplMstr(" ERROR ");
-                UART1PutString(errMsg); // on error ask keypad to resend your cmd. refer Note 4
+                UART1PutString("* 00 00 EEEE #"); // on error ask keypad to resend your cmd. refer Note 4
+//                UART1PutString(errMsg);
                 __delay_ms(1000);
             }
 MSTRCLEAR:
@@ -1850,4 +1939,21 @@ void makeMstrDsplString(char *cnt, char *di, char *mstrDspl) {
         *mstrDspl = *di++;
         mstrDspl++;
     }
+}
+
+/* @param string to validate
+ * @return boolean value true (1) if string is valid
+ */
+char validateLastCalledTokenRestore(char *temp){
+    int i = 0, count = 0;
+    while(i<4){
+        if(isalnum(temp[i]) != 1){
+            return false;
+        }
+        else{
+            count++;
+        }
+        i++;
+    }
+    return true;
 }

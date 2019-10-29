@@ -1,0 +1,32 @@
+Dotmatrix display(PIC24HJ128GP204):  (DM_ECQ.X.production_v3.0.hex)
+---------------------------------------------
+1.Fixed writing multiple service list not working second time.
+2.Added Secondary Master option.
+3.Fixed restoring data after power OFF and ON.
+4.ERROR displayed and junk data fix (29-10-2019)
+5.Added firmware version information in display startup ex:V3.0(30-10-2019)
+
+
+Keypad(AT89S52): (16_Keypad_Production_v2.0.hex)
+--------------------------------
+1.RS485 tx_enable issue fixed.
+2.Fixed retry option if the command from keypad is missed when Master is busy
+
+
+USB RS485 converter(PIC18F2550):(USB_RS485_Production_v2.0.hex)
+----------------------------------------------------------
+1.First token acknowledgemnt not received issue fixed.
+
+
+User manual update:
+------------------
+1.DM_Cable Connections v2 document updated
+2.DM_Operation Manual for Hardware only v2 document updated with Secondary master setting info
+
+
+
+Note:
+----- 
+1.The resistor R52 and R58 should not be soldered in the Master and slave displays.
+2.The crystal oscillator must be 11.0592 MHz for 16 keypad remote.
+
