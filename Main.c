@@ -7,6 +7,26 @@
  * Single LED = 0.04A
  * TEST (4 letters) on display = 0.17A
  * 18-10-2016 : adding buzzer is yet to implement
+ * 
+ * Note 3: 17-oct-2019: disable print commands to                             
+ * check if this resolves issue of                                         
+ * garbage value display when a slave is added in system when system is kept  
+ * ON
+ * 
+ * Note 4: as discussed with senthil on 19th oct 2019,                                   
+ * if ERROR is shown on display , we will send * 00 00 EEEE # cmd                        
+ * from master board so that keypad can understand that cmd has been failed              
+ * and keypad needs to resend this cmd. This is because when a slave board is            
+ * is connected in a already Powered ON system, first command sent from keypad fails.    
+ * next cmd onwards system works well. so to avoid missing a cmd, we found this solution.
+ * const unsigned char errMsg[14] = "* 00 00 EEEE #"
+ * 
+ * Note 5: to resolve garbage value issue for unused service,           
+ * before showing value on display we will convert string token number  
+ * to int value and check if int value is a valid number or not        
+ * if it is not a valid number, display 0000.
+ * 
+ * Note 6: 14-12-2019 V4.0 error message display disabled.
  */
 
 #include <stdio.h>
@@ -170,7 +190,8 @@ int main(int argc, char** argv) {
     strcpy(rawMasterStr, "TEST   ");
     printDsplMstr(rawMasterStr); // as per video sent by him
     __delay_ms(1000);
-    strcpy(rawMasterStr,"V3.0   "); // states firmware current version in use.
+//    strcpy(rawMasterStr,"V3.0   "); // states firmware current version in use.
+    strcpy(rawMasterStr,"V4.0   "); // states firmware current version in use.
     printDsplMstr(rawMasterStr);
     __delay_ms(1000);
     /*============================= WRITE DEFAULT PARAMETERS IN EEPROM=========================================*/
@@ -1911,7 +1932,7 @@ MASTER_MODE:
                 /* is connected in a already Powered ON system, first command sent from keypad fails.    */
                 /* next cmd onwards system works well. so to avoid missing a cmd, we found this solution.*/
 //                const unsigned char errMsg[14] = "* 00 00 EEEE #";
-                printDsplMstr(" ERROR ");
+                // Note 6: printDsplMstr(" ERROR ");
                 UART1PutString("* 00 00 EEEE #"); // on error ask keypad to resend your cmd. refer Note 4
 //                UART1PutString(errMsg);
                 __delay_ms(1000);

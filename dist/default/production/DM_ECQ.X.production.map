@@ -109,13 +109,13 @@ Default Scalar Model: Small
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200               0x392           0x55b  (1371)
-.const                       0x592               0x672           0x9ab  (2475)
-.text                        0xc04              0x3a8c          0x57d2  (22482)
-.dinit                      0x4690               0x130           0x1c8  (456)
-.text                       0x47c0               0x344           0x4e6  (1254)
-.init.delay32               0x4b04                0x1c            0x2a  (42)
+.const                       0x592               0x66a           0x99f  (2463)
+.text                        0xbfc              0x3a88          0x57cc  (22476)
+.dinit                      0x4684               0x130           0x1c8  (456)
+.text                       0x47b4               0x344           0x4e6  (1254)
+.init.delay32               0x4af8                0x1c            0x2a  (42)
 
-                 Total "program" memory used (bytes):         0x6db0  (28080) 21%
+                 Total "program" memory used (bytes):         0x6d9e  (28062) 21%
 
 
 "data" Memory  [Origin = 0x800, Length = 0x2000]
@@ -239,71 +239,71 @@ External Symbols in Program Memory (by address):
                   0x000564                  _strlen
                   0x000570                  _strncpy
                   0x000592                  _Font_tab
-                  0x000c04                  _main
-                  0x003d38                  _makeMstrDsplString
-                  0x003d94                  _validateLastCalledTokenRestore
-                  0x003dca                  _displayInit
-                  0x003dd8                  _displayCtrl
-                  0x003df2                  _displayLatch
-                  0x003e0a                  _updateDisplay
-                  0x003e30                  _updateDisplayMstr
-                  0x003e66                  _printDspl
-                  0x003f60                  _adjDigits
-                  0x003fbe                  _printDsplMstr
-                  0x00410e                  _allDotsONOFF
-                  0x004176                  _allDotsONOFFMaster
-                  0x004216                  _allMstrDotsONOFF
-                  0x0042b6                  _blinkDspl
-                  0x004374                  _masterDsplString
-                  0x0043b0                  _Init_EEPROM
-                  0x0043be                  _spiEeByteWrite
-                  0x00440c                  _spiEeByteRead
-                  0x004448                  _spiEeWriteEnable
-                  0x004458                  _spiEeWriteDisable
-                  0x004468                  _EEPROMReadStatus
-                  0x00448c                  _spiEePoll
-                  0x0044a8                  _storeData
-                  0x0044d0                  _eeWriteArr
-                  0x00450a                  _eeReadArr
-                  0x004544                  _uiToStr
-                  0x004596                  _charToInteger
-                  0x0045a8                  _strToUi
-                  0x004600                  _strToUiPartial
-                  0x004656                  _strCountUiCount
-                  0x0047c0                  _makeQuerry
-                  0x004854                  _strCpyArr
-                  0x00487a                  _setServiceList
-                  0x0048b0                  _spi1Init
-                  0x004908                  _spi1Write
-                  0x004924                  _spi2Init
-                  0x004962                  _spi2Write
-                  0x00497e                  _init_uart
-                  0x0049cc                  _UARTEnable
-                  0x0049d8                  _UARTDisable
-                  0x0049e4                  _UART1PutChar
-                  0x004a0c                  _UART1PutString
-                  0x004a44                  _key_init
-                  0x004a56                  _getKey
-                  0x004a84                  _soundOn
-                  0x004aa2                  _beep
-                  0x004ab8                  _InitializeTimer
-                  0x004ae4                  _OSC_setup
-                  0x004b04                  ___delay32
+                  0x000bfc                  _main
+                  0x003d2c                  _makeMstrDsplString
+                  0x003d88                  _validateLastCalledTokenRestore
+                  0x003dbe                  _displayInit
+                  0x003dcc                  _displayCtrl
+                  0x003de6                  _displayLatch
+                  0x003dfe                  _updateDisplay
+                  0x003e24                  _updateDisplayMstr
+                  0x003e5a                  _printDspl
+                  0x003f54                  _adjDigits
+                  0x003fb2                  _printDsplMstr
+                  0x004102                  _allDotsONOFF
+                  0x00416a                  _allDotsONOFFMaster
+                  0x00420a                  _allMstrDotsONOFF
+                  0x0042aa                  _blinkDspl
+                  0x004368                  _masterDsplString
+                  0x0043a4                  _Init_EEPROM
+                  0x0043b2                  _spiEeByteWrite
+                  0x004400                  _spiEeByteRead
+                  0x00443c                  _spiEeWriteEnable
+                  0x00444c                  _spiEeWriteDisable
+                  0x00445c                  _EEPROMReadStatus
+                  0x004480                  _spiEePoll
+                  0x00449c                  _storeData
+                  0x0044c4                  _eeWriteArr
+                  0x0044fe                  _eeReadArr
+                  0x004538                  _uiToStr
+                  0x00458a                  _charToInteger
+                  0x00459c                  _strToUi
+                  0x0045f4                  _strToUiPartial
+                  0x00464a                  _strCountUiCount
+                  0x0047b4                  _makeQuerry
+                  0x004848                  _strCpyArr
+                  0x00486e                  _setServiceList
+                  0x0048a4                  _spi1Init
+                  0x0048fc                  _spi1Write
+                  0x004918                  _spi2Init
+                  0x004956                  _spi2Write
+                  0x004972                  _init_uart
+                  0x0049c0                  _UARTEnable
+                  0x0049cc                  _UARTDisable
+                  0x0049d8                  _UART1PutChar
+                  0x004a00                  _UART1PutString
+                  0x004a38                  _key_init
+                  0x004a4a                  _getKey
+                  0x004a78                  _soundOn
+                  0x004a96                  _beep
+                  0x004aac                  _InitializeTimer
+                  0x004ad8                  _OSC_setup
+                  0x004af8                  ___delay32
                   0xf80000                  __FBS.sec
                   0xf80002                  __FSS.sec
                   0xf80004                  __FGS.sec
 
 External Symbols in Program Memory (by name):
 
-                  0x004468                  _EEPROMReadStatus
+                  0x00445c                  _EEPROMReadStatus
                   0x000592                  _Font_tab
-                  0x0043b0                  _Init_EEPROM
-                  0x004ab8                  _InitializeTimer
-                  0x004ae4                  _OSC_setup
-                  0x0049e4                  _UART1PutChar
-                  0x004a0c                  _UART1PutString
-                  0x0049d8                  _UARTDisable
-                  0x0049cc                  _UARTEnable
+                  0x0043a4                  _Init_EEPROM
+                  0x004aac                  _InitializeTimer
+                  0x004ad8                  _OSC_setup
+                  0x0049d8                  _UART1PutChar
+                  0x004a00                  _UART1PutString
+                  0x0049cc                  _UARTDisable
+                  0x0049c0                  _UARTEnable
                   0x000514                  __DefaultInterrupt
                   0xf80000                  __FBS.sec
                   0xf80004                  __FGS.sec
@@ -311,58 +311,58 @@ External Symbols in Program Memory (by name):
                   0x0002c8                  __T1Interrupt
                   0x0003a4                  __U1RXInterrupt
                   0x000500                  __U1TXInterrupt
-                  0x004b04                  ___delay32
+                  0x004af8                  ___delay32
                   0x000252                  __data_init
                   0x000252                  __data_init_standard
                   0x00023c                  __psv_init
                   0x000200                  __resetPRI
-                  0x003f60                  _adjDigits
-                  0x00410e                  _allDotsONOFF
-                  0x004176                  _allDotsONOFFMaster
-                  0x004216                  _allMstrDotsONOFF
-                  0x004aa2                  _beep
-                  0x0042b6                  _blinkDspl
-                  0x004596                  _charToInteger
-                  0x003dd8                  _displayCtrl
-                  0x003dca                  _displayInit
-                  0x003df2                  _displayLatch
-                  0x00450a                  _eeReadArr
-                  0x0044d0                  _eeWriteArr
-                  0x004a56                  _getKey
-                  0x00497e                  _init_uart
+                  0x003f54                  _adjDigits
+                  0x004102                  _allDotsONOFF
+                  0x00416a                  _allDotsONOFFMaster
+                  0x00420a                  _allMstrDotsONOFF
+                  0x004a96                  _beep
+                  0x0042aa                  _blinkDspl
+                  0x00458a                  _charToInteger
+                  0x003dcc                  _displayCtrl
+                  0x003dbe                  _displayInit
+                  0x003de6                  _displayLatch
+                  0x0044fe                  _eeReadArr
+                  0x0044c4                  _eeWriteArr
+                  0x004a4a                  _getKey
+                  0x004972                  _init_uart
                   0x000518                  _isalnum
-                  0x004a44                  _key_init
-                  0x000c04                  _main
-                  0x003d38                  _makeMstrDsplString
-                  0x0047c0                  _makeQuerry
-                  0x004374                  _masterDsplString
+                  0x004a38                  _key_init
+                  0x000bfc                  _main
+                  0x003d2c                  _makeMstrDsplString
+                  0x0047b4                  _makeQuerry
+                  0x004368                  _masterDsplString
                   0x000536                  _memcpy
-                  0x003e66                  _printDspl
-                  0x003fbe                  _printDsplMstr
-                  0x00487a                  _setServiceList
-                  0x004a84                  _soundOn
-                  0x0048b0                  _spi1Init
-                  0x004908                  _spi1Write
-                  0x004924                  _spi2Init
-                  0x004962                  _spi2Write
-                  0x00440c                  _spiEeByteRead
-                  0x0043be                  _spiEeByteWrite
-                  0x00448c                  _spiEePoll
-                  0x004458                  _spiEeWriteDisable
-                  0x004448                  _spiEeWriteEnable
-                  0x0044a8                  _storeData
-                  0x004656                  _strCountUiCount
-                  0x004854                  _strCpyArr
-                  0x0045a8                  _strToUi
-                  0x004600                  _strToUiPartial
+                  0x003e5a                  _printDspl
+                  0x003fb2                  _printDsplMstr
+                  0x00486e                  _setServiceList
+                  0x004a78                  _soundOn
+                  0x0048a4                  _spi1Init
+                  0x0048fc                  _spi1Write
+                  0x004918                  _spi2Init
+                  0x004956                  _spi2Write
+                  0x004400                  _spiEeByteRead
+                  0x0043b2                  _spiEeByteWrite
+                  0x004480                  _spiEePoll
+                  0x00444c                  _spiEeWriteDisable
+                  0x00443c                  _spiEeWriteEnable
+                  0x00449c                  _storeData
+                  0x00464a                  _strCountUiCount
+                  0x004848                  _strCpyArr
+                  0x00459c                  _strToUi
+                  0x0045f4                  _strToUiPartial
                   0x000544                  _strchr
                   0x000558                  _strcpy
                   0x000564                  _strlen
                   0x000570                  _strncpy
-                  0x004544                  _uiToStr
-                  0x003e0a                  _updateDisplay
-                  0x003e30                  _updateDisplayMstr
-                  0x003d94                  _validateLastCalledTokenRestore
+                  0x004538                  _uiToStr
+                  0x003dfe                  _updateDisplay
+                  0x003e24                  _updateDisplayMstr
+                  0x003d88                  _validateLastCalledTokenRestore
 
 Memory Configuration
 
@@ -475,17 +475,17 @@ usercode
 
 __FBS             0xf80000          0x2
  *(__FBS.sec*)
- __FBS.sec        0xf80000          0x2 /CW/_FBS¿Ûè	ÙÛè	__FBS.sec
+ __FBS.sec        0xf80000          0x2 /CW/_FBSP∫	Ñ∫	__FBS.sec
                   0xf80000                  __FBS.sec
 
 __FSS             0xf80002          0x2
  *(__FSS.sec*)
- __FSS.sec        0xf80002          0x2 /CW/_FSS¿2è	Ù2è	__FSS.sec
+ __FSS.sec        0xf80002          0x2 /CW/_FSSPæπ	Ñæπ	__FSS.sec
                   0xf80002                  __FSS.sec
 
 __FGS             0xf80004          0x2
  *(__FGS.sec*)
- __FGS.sec        0xf80004          0x2 /CW/_FGS¿"è	Ù"è	__FGS.sec
+ __FGS.sec        0xf80004          0x2 /CW/_FGSPÆπ	ÑÆπ	__FGS.sec
                   0xf80004                  __FGS.sec
 
 __FOSCSEL
@@ -547,19 +547,19 @@ __FUID3
  .debug_abbrev    0x000933        0x17d build/default/production/uart_1.o
  .debug_abbrev    0x000ab0         0xb0 build/default/production/bellControl.o
 
-.debug_line       0x000000       0x107c
+.debug_line       0x000000       0x107b
  *(.debug_line)
  .debug_line      0x000000        0x114 build/default/production/EEPROM_C.o
- .debug_line      0x000114        0x79b build/default/production/Main.o
- .debug_line      0x0008af         0xc3 build/default/production/Oscillator.o
- .debug_line      0x000972        0x19e build/default/production/display_routine.o
- .debug_line      0x000b10         0xd1 build/default/production/key_routines.o
- .debug_line      0x000be1         0x5b build/default/production/makeQuery.o
- .debug_line      0x000c3c         0x61 build/default/production/num2Ascii.o
- .debug_line      0x000c9d         0xec build/default/production/set_timer.o
- .debug_line      0x000d89         0xeb build/default/production/spi.o
- .debug_line      0x000e74        0x13a build/default/production/uart_1.o
- .debug_line      0x000fae         0xce build/default/production/bellControl.o
+ .debug_line      0x000114        0x79a build/default/production/Main.o
+ .debug_line      0x0008ae         0xc3 build/default/production/Oscillator.o
+ .debug_line      0x000971        0x19e build/default/production/display_routine.o
+ .debug_line      0x000b0f         0xd1 build/default/production/key_routines.o
+ .debug_line      0x000be0         0x5b build/default/production/makeQuery.o
+ .debug_line      0x000c3b         0x61 build/default/production/num2Ascii.o
+ .debug_line      0x000c9c         0xec build/default/production/set_timer.o
+ .debug_line      0x000d88         0xeb build/default/production/spi.o
+ .debug_line      0x000e73        0x13a build/default/production/uart_1.o
+ .debug_line      0x000fad         0xce build/default/production/bellControl.o
 
 .debug_frame      0x000000        0x6e4
  *(.debug_frame)
@@ -1343,9 +1343,9 @@ LOAD /opt/microchip/xc16/v1.41/bin/bin/../../lib/libm-elf.a
 LOAD /opt/microchip/xc16/v1.41/bin/bin/../../lib/libc-elf.a
 END GROUP
 OUTPUT(dist/default/production/DM_ECQ.X.production.elf elf32-pic30)
-LOAD /CW/_FGS¿"è	Ù"è	__FGS.sec
-LOAD /CW/_FSS¿2è	Ù2è	__FSS.sec
-LOAD /CW/_FBS¿Ûè	ÙÛè	__FBS.sec
+LOAD /CW/_FGSPÆπ	ÑÆπ	__FGS.sec
+LOAD /CW/_FSSPæπ	Ñæπ	__FSS.sec
+LOAD /CW/_FBSP∫	Ñ∫	__FBS.sec
 LOAD default_isr
 LOAD heap
 LOAD data_init
@@ -1505,78 +1505,78 @@ __c30_signature
  .ivt._U1TXInterrupt
                   0x00002c          0x2 build/default/production/uart_1.o
 
-.const              0x8592        0x672 load address 0x000592  
+.const              0x8592        0x66a load address 0x000592  
  .const             0x8592        0x500 build/default/production/display_routine.o
                     0x8592                  _Font_tab
- .const             0x8a92        0x172 build/default/production/Main.o
+ .const             0x8a92        0x16a build/default/production/Main.o
 
-.text             0x000c04       0x3a8c
- .text            0x000c04       0x31c6 build/default/production/Main.o
-                  0x000c04                  _main
-                  0x003d38                  _makeMstrDsplString
-                  0x003d94                  _validateLastCalledTokenRestore
- .text            0x003dca        0x5e6 build/default/production/display_routine.o
-                  0x003dca                  _displayInit
-                  0x003dd8                  _displayCtrl
-                  0x003df2                  _displayLatch
-                  0x003e0a                  _updateDisplay
-                  0x003e30                  _updateDisplayMstr
-                  0x003e66                  _printDspl
-                  0x003f60                  _adjDigits
-                  0x003fbe                  _printDsplMstr
-                  0x00410e                  _allDotsONOFF
-                  0x004176                  _allDotsONOFFMaster
-                  0x004216                  _allMstrDotsONOFF
-                  0x0042b6                  _blinkDspl
-                  0x004374                  _masterDsplString
- .text            0x0043b0        0x194 build/default/production/EEPROM_C.o
-                  0x0043b0                  _Init_EEPROM
-                  0x0043be                  _spiEeByteWrite
-                  0x00440c                  _spiEeByteRead
-                  0x004448                  _spiEeWriteEnable
-                  0x004458                  _spiEeWriteDisable
-                  0x004468                  _EEPROMReadStatus
-                  0x00448c                  _spiEePoll
-                  0x0044a8                  _storeData
-                  0x0044d0                  _eeWriteArr
-                  0x00450a                  _eeReadArr
- .text            0x004544        0x14c build/default/production/num2Ascii.o
-                  0x004544                  _uiToStr
-                  0x004596                  _charToInteger
-                  0x0045a8                  _strToUi
-                  0x004600                  _strToUiPartial
-                  0x004656                  _strCountUiCount
+.text             0x000bfc       0x3a88
+ .text            0x000bfc       0x31c2 build/default/production/Main.o
+                  0x000bfc                  _main
+                  0x003d2c                  _makeMstrDsplString
+                  0x003d88                  _validateLastCalledTokenRestore
+ .text            0x003dbe        0x5e6 build/default/production/display_routine.o
+                  0x003dbe                  _displayInit
+                  0x003dcc                  _displayCtrl
+                  0x003de6                  _displayLatch
+                  0x003dfe                  _updateDisplay
+                  0x003e24                  _updateDisplayMstr
+                  0x003e5a                  _printDspl
+                  0x003f54                  _adjDigits
+                  0x003fb2                  _printDsplMstr
+                  0x004102                  _allDotsONOFF
+                  0x00416a                  _allDotsONOFFMaster
+                  0x00420a                  _allMstrDotsONOFF
+                  0x0042aa                  _blinkDspl
+                  0x004368                  _masterDsplString
+ .text            0x0043a4        0x194 build/default/production/EEPROM_C.o
+                  0x0043a4                  _Init_EEPROM
+                  0x0043b2                  _spiEeByteWrite
+                  0x004400                  _spiEeByteRead
+                  0x00443c                  _spiEeWriteEnable
+                  0x00444c                  _spiEeWriteDisable
+                  0x00445c                  _EEPROMReadStatus
+                  0x004480                  _spiEePoll
+                  0x00449c                  _storeData
+                  0x0044c4                  _eeWriteArr
+                  0x0044fe                  _eeReadArr
+ .text            0x004538        0x14c build/default/production/num2Ascii.o
+                  0x004538                  _uiToStr
+                  0x00458a                  _charToInteger
+                  0x00459c                  _strToUi
+                  0x0045f4                  _strToUiPartial
+                  0x00464a                  _strCountUiCount
 
-.dinit            0x004690        0x130
- .dinit           0x004690        0x130 data_init
+.dinit            0x004684        0x130
+ .dinit           0x004684        0x130 data_init
 
-.text             0x0047c0        0x344
- .text            0x0047c0         0xf0 build/default/production/makeQuery.o
-                  0x0047c0                  _makeQuerry
-                  0x004854                  _strCpyArr
-                  0x00487a                  _setServiceList
- .text            0x0048b0         0xce build/default/production/spi.o
-                  0x0048b0                  _spi1Init
-                  0x004908                  _spi1Write
-                  0x004924                  _spi2Init
-                  0x004962                  _spi2Write
- .text            0x00497e         0xc6 build/default/production/uart_1.o
-                  0x00497e                  _init_uart
-                  0x0049cc                  _UARTEnable
-                  0x0049d8                  _UARTDisable
-                  0x0049e4                  _UART1PutChar
-                  0x004a0c                  _UART1PutString
- .text            0x004a44         0x40 build/default/production/key_routines.o
-                  0x004a44                  _key_init
-                  0x004a56                  _getKey
- .text            0x004a84         0x34 build/default/production/bellControl.o
-                  0x004a84                  _soundOn
-                  0x004aa2                  _beep
- .text            0x004ab8         0x2c build/default/production/set_timer.o
-                  0x004ab8                  _InitializeTimer
- .text            0x004ae4         0x20 build/default/production/Oscillator.o
-                  0x004ae4                  _OSC_setup
+.text             0x0047b4        0x344
+ .text            0x0047b4         0xf0 build/default/production/makeQuery.o
+                  0x0047b4                  _makeQuerry
+                  0x004848                  _strCpyArr
+                  0x00486e                  _setServiceList
+ .text            0x0048a4         0xce build/default/production/spi.o
+                  0x0048a4                  _spi1Init
+                  0x0048fc                  _spi1Write
+                  0x004918                  _spi2Init
+                  0x004956                  _spi2Write
+ .text            0x004972         0xc6 build/default/production/uart_1.o
+                  0x004972                  _init_uart
+                  0x0049c0                  _UARTEnable
+                  0x0049cc                  _UARTDisable
+                  0x0049d8                  _UART1PutChar
+                  0x004a00                  _UART1PutString
+ .text            0x004a38         0x40 build/default/production/key_routines.o
+                  0x004a38                  _key_init
+                  0x004a4a                  _getKey
+ .text            0x004a78         0x34 build/default/production/bellControl.o
+                  0x004a78                  _soundOn
+                  0x004a96                  _beep
+ .text            0x004aac         0x2c build/default/production/set_timer.o
+                  0x004aac                  _InitializeTimer
+ .text            0x004ad8         0x20 build/default/production/Oscillator.o
+                  0x004ad8                  _OSC_setup
 
-.init.delay32     0x004b04         0x1c
- .init.delay32    0x004b04         0x1c /opt/microchip/xc16/v1.41/bin/bin/../../lib/libpic30-elf.a(delay32.eo)
-                  0x004b04                  ___delay32
+.init.delay32     0x004af8         0x1c
+ .init.delay32    0x004af8         0x1c /opt/microchip/xc16/v1.41/bin/bin/../../lib/libpic30-elf.a(delay32.eo)
+                  0x004af8                  ___delay32
